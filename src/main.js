@@ -1,6 +1,17 @@
+//Liam Murray
+//Working title
+//Mods Implemeted:
+    //enemy spaceship type: Created a new class "alien", inherting from Spaceship, and added new movement/point values
+    //
+    //
+    //
+//
 
 let config = {
     type: Phaser.AUTO,
+    render: {
+        pixelArt: true
+    },
     width: 640,
     height: 480,
     scene: [Menu, Play]
