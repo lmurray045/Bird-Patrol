@@ -46,6 +46,15 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(borderUISize + borderPadding, borderUISize + borderPadding * 2, this.p1Score, scoreConfig)
         
+
+        //particle emmitter
+        //CITATION: I used the phaser3 examples documentation to see how particle emitters worked: https://phaser.io/examples/v3/view/game-objects/particle-emitter/explode-emitter
+        this.manageEmit = new ParticleEmitterManager(this, 'explode')
+        this.emitter = new ParticleEmitter(this.manageEmit, {
+            
+        })
+
+
         // GAME OVER flag
         this.gameOver = false
 
@@ -56,9 +65,11 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2 + 64, 'Press (R) to Restart or <- for Menu', scoreConfig).setOrigin(0.5)
             this.gameOver = true
         }, null, this)
+
     }
 
     update() {
+        
         //check for restart
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyRESET)) {
             this.scene.restart()
@@ -138,5 +149,4 @@ class Play extends Phaser.Scene {
         this.scoreLeft.text = this.p1Score
         this.sound.play('sfx-explosion')
     }
-
 }
