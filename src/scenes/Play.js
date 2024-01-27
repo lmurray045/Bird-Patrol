@@ -49,9 +49,13 @@ class Play extends Phaser.Scene {
 
         //particle emmitter
         //CITATION: I used the phaser3 examples documentation to see how particle emitters worked: https://phaser.io/examples/v3/view/game-objects/particle-emitter/explode-emitter
-        this.manageEmit = new ParticleEmitterManager(this, 'explode')
-        this.emitter = new ParticleEmitter(this.manageEmit, {
-            
+        this.emitter = this.add.particles(0, 0, 'explode', {
+           frequency: -1, 
+           gravityY: 400,
+           lifespan: 3000,
+           scale: 1.5,
+           speed: {min: 100, max: 400} ,
+           texture: 'explode'
         })
 
 
@@ -137,12 +141,13 @@ class Play extends Phaser.Scene {
         //hide ship
         ship.alpha = 0
         // create explosion sprite at ships pos
+        this.emitter.explode(400, ship.x + 30, ship.y + 16)   //make particles happen
         let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
-        boom.anims.play('explode')              // play animation
-        boom.on("animationcomplete", () => {    // callback after anim ends
-            ship.reset()                        // reset ship
-            ship.alpha = 1                      // make visible
-            boom.destroy()                      // remove explosion sprite
+        boom.anims.play('explode')                  // play animation
+        boom.on("animationcomplete", () => {        // callback after anim ends
+            ship.reset()                            // reset ship
+            ship.alpha = 1                          // make visible
+            boom.destroy()                          // remove explosion sprite
         })
         // score add and text update
         this.p1Score += ship.points
