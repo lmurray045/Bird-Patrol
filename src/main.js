@@ -2,9 +2,10 @@
 //Working title
 //Mods Implemeted:
     //enemy spaceship type: Created a new class "alien", inherting from Spaceship, and added new movement/point values
-    //
-    //
-    //
+    //Explosions: used particle generator to create green particle explosions
+    //Random Explosions (5 total, including Nathans)
+    //Updated Background sprite
+    //implemented paralax scrolling with the clouds
 //
 
 let config = {

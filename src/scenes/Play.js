@@ -5,7 +5,11 @@ class Play extends Phaser.Scene {
 
     create() {
         //place tile sprite
-        this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0)
+        //this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0)
+        this.clouds1  = this.add.tileSprite(0, 0, 640, 480, 'clouds1').setOrigin(0, 0)
+        this.clouds2  = this.add.tileSprite(0, 0, 640, 480, 'clouds2').setOrigin(0, 0)
+
+
         //Green UI background
         this.add.rectangle(0, borderUISize + borderPadding, game.config.width, borderUISize * 2, 0x00FF00).setOrigin(0,0)
         //white borders
@@ -54,7 +58,7 @@ class Play extends Phaser.Scene {
            gravityY: 400,
            lifespan: 3000,
            scale: 1.5,
-           speed: {min: 100, max: 400} ,
+           speed: {min: 10, max: 400} ,
            texture: 'explode'
         })
 
@@ -83,7 +87,8 @@ class Play extends Phaser.Scene {
             this.scene.start("menuScene")
           }
 
-        this.starfield.tilePositionX -= 4
+        this.clouds2.tilePositionX -= 4
+        this.clouds1.tilePositionX -= 1
         if(!this.gameOver) {
             this.p1Rocket.update()
             this.ship01.update()
@@ -152,6 +157,18 @@ class Play extends Phaser.Scene {
         // score add and text update
         this.p1Score += ship.points
         this.scoreLeft.text = this.p1Score
-        this.sound.play('sfx-explosion')
+        let randInt = Math.floor((Math.random() * 10)) % 5
+        console.log(randInt)
+        if (randInt == 0) {
+            this.sound.play('sfx-explosion')
+        } else if(randInt == 1) {
+            this.sound.play('sfx-boom1')
+        } else if(randInt == 2) {
+            this.sound.play('sfx-boom2')
+        } else if(randInt == 3) {
+            this.sound.play('sfx-boom3')
+        } else {
+            this.sound.play('sfx-boom4')
+        }
     }
 }
