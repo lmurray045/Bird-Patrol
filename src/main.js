@@ -6,10 +6,11 @@
 //3    //Random Explosions (5 total, including Nathans)
 //1    //Updated Background sprite
 //3    //implemented paralax scrolling with the clouds
-//    //
+//3    //made animated ship sprite (I made them birds)
 //total: 20pts
-// Hours:
+// Hours: 11
 // Citations:
+// //I used the phaser3 examples documentation to see how particle emitters worked: https://phaser.io/examples/v3/view/game-objects/particle-emitter/explode-emitter
 
 let config = {
     type: Phaser.AUTO,
