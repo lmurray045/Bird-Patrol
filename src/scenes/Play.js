@@ -174,7 +174,6 @@ class Play extends Phaser.Scene {
         this.p1Score += ship.points
         this.scoreLeft.text = this.p1Score
         let randInt = Math.floor((Math.random() * 10)) % 5
-        console.log(randInt)
         if (randInt == 0) {
             this.sound.play('sfx-explosion')
         } else if(randInt == 1) {

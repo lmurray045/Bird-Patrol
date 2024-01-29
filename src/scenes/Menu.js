@@ -7,7 +7,7 @@ class Menu extends Phaser.Scene {
         //load images
         this.load.image('rocket', './assets/img/rocket.png')
         //this.load.image('spaceship', './assets/img/spaceship.png')
-        this.load.image('alien', './assets/img/alien.png')
+        this.load.image('alien', './assets/img/Alien.png')
         this.load.image('starfield', './assets/img/starfield.png')
         this.load.image('clouds1', './assets/img/clouds1.png')
         this.load.image('clouds2', './assets/img/clouds2.png')
@@ -29,10 +29,10 @@ class Menu extends Phaser.Scene {
         this.load.audio('sfx-select', './assets/img/sfx-select.wav')
         this.load.audio('sfx-explosion', './assets/img/sfx-explosion.wav')
         this.load.audio('sfx-shot', './assets/img/sfx-shot.wav')
-        this.load.audio('sfx-boom1', './assets/img/boom1.wav')
-        this.load.audio('sfx-boom2', './assets/img/boom2.wav')
-        this.load.audio('sfx-boom3', './assets/img/boom3.wav')
-        this.load.audio('sfx-boom4', './assets/img/boom4.wav')
+        this.load.audio('sfx-boom1', './assets/img/Boom1.wav')
+        this.load.audio('sfx-boom2', './assets/img/Boom2.wav')
+        this.load.audio('sfx-boom3', './assets/img/Boom3.wav')
+        this.load.audio('sfx-boom4', './assets/img/Boom4.wav')
     }
 
     create() {
