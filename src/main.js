@@ -1,12 +1,15 @@
 //Liam Murray
 //Working title
 //Mods Implemeted:
-    //enemy spaceship type: Created a new class "alien", inherting from Spaceship, and added new movement/point values
-    //Explosions: used particle generator to create green particle explosions
-    //Random Explosions (5 total, including Nathans)
-    //Updated Background sprite
-    //implemented paralax scrolling with the clouds
-//
+//5    //enemy spaceship type: Created a new class "alien", inherting from Spaceship, and added new movement/point values
+//5    //Explosions: used particle generator to create green particle explosions
+//3    //Random Explosions (5 total, including Nathans)
+//1    //Updated Background sprite
+//3    //implemented paralax scrolling with the clouds
+//    //
+//total: 20pts
+// Hours:
+// Citations:
 
 let config = {
     type: Phaser.AUTO,

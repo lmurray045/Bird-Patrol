@@ -6,7 +6,7 @@ class Menu extends Phaser.Scene {
     preload () {
         //load images
         this.load.image('rocket', './assets/img/rocket.png')
-        this.load.image('spaceship', './assets/img/spaceship.png')
+        //this.load.image('spaceship', './assets/img/spaceship.png')
         this.load.image('alien', './assets/img/alien.png')
         this.load.image('starfield', './assets/img/starfield.png')
         this.load.image('clouds1', './assets/img/clouds1.png')
@@ -16,6 +16,12 @@ class Menu extends Phaser.Scene {
             frameHeight: 32,
             startFrame: 0,
             endFrame: 9
+        })
+        this.load.spritesheet('bird', './assets/img/bird.png', {
+            frameWidth: 64,
+            frameHeight: 32,
+            startFrame: 0,
+            endFrame: 3
         })
         this.load.image('explode', './assets/img/Explode.png')
 
@@ -35,6 +41,13 @@ class Menu extends Phaser.Scene {
             key: 'explode',
             frames: this.anims.generateFrameNumbers('explosion', {start: 0, end: 9, first: 0}),
             frameRate: 30
+        })
+
+        this.anims.create({
+            key: 'flapping',
+            frames: this.anims.generateFrameNumbers('bird', {start: 0, end: 3, first: 0}),
+            frameRate: 12,
+            repeat: -1
         })
 
         let menuConfig = {

@@ -21,11 +21,15 @@ class Play extends Phaser.Scene {
         this.p1Rocket = new Rocket(this, game.config.width/2, game.config.height - borderUISize - borderPadding, 'rocket').setOrigin(0.5, 0)
 
         //add ships (x3)
-        this.ship01 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*4, 'spaceship', 0, 30).setOrigin(0, 0)
-        this.ship02 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*6, 'spaceship', 0, 20).setOrigin(0,0)
-        this.ship03 = new Spaceship(this,  game.config.width - borderUISize*3, borderUISize*9 + borderPadding*3, 'spaceship', 0, 10).setOrigin(0, 0)
+        this.ship01 = new Spaceship(this, game.config.width + borderUISize*3, borderUISize*5 + borderPadding*4, 'bird', 0, 30).setOrigin(0, 0)
+        this.ship02 = new Spaceship(this, game.config.width, borderUISize*6 + borderPadding*6, 'bird', 0, 20).setOrigin(0,0)
+        this.ship03 = new Spaceship(this,  game.config.width - borderUISize*3, borderUISize*9 + borderPadding*3, 'bird', 0, 10).setOrigin(0, 0)
         this.alien = new Alien(this, game.config.width + borderUISize*6, borderUISize*4 + borderPadding, 'alien', 0, 50).setOrigin(0,0)
         this.alien.setScale(2);
+
+        this.ship01.play('flapping', true)
+        this.ship02.play('flapping', true)
+        this.ship03.play('flapping', true)
 
         // define keys
         keyFIRE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F)
@@ -116,6 +120,18 @@ class Play extends Phaser.Scene {
             this.shipExplode(this.ship02)
         }
 
+        this.ship01.on('animationcomplete', () => {
+            this.anims.play("flapping")
+        })
+
+        this.ship02.on('animationcomplete', () => {
+            this.anims.play("flapping")
+        })
+
+        this.ship03.on('animationcomplete', () => {
+            this.anims.play("flapping")
+        })
+        
     }
 
     checkCollision(rocket, ship) {
