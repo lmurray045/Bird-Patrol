@@ -17,6 +17,12 @@ class Menu extends Phaser.Scene {
             startFrame: 0,
             endFrame: 9
         })
+        this.load.spritesheet('pop', './assets/img/pop.png', {
+            frameWidth: 64,
+            frameHeight: 32,
+            startFrame: 0,
+            endFrame: 4
+        })
         this.load.spritesheet('bird', './assets/img/bird.png', {
             frameWidth: 64,
             frameHeight: 32,
@@ -41,6 +47,12 @@ class Menu extends Phaser.Scene {
             key: 'explode',
             frames: this.anims.generateFrameNumbers('explosion', {start: 0, end: 9, first: 0}),
             frameRate: 30
+        })
+
+        this.anims.create({
+            key: 'bird-pop',
+            frames: this.anims.generateFrameNumbers('pop', {start: 0, end: 4, first: 0}),
+            frameRate: 12
         })
 
         this.anims.create({

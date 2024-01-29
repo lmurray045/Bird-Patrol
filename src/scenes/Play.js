@@ -163,13 +163,23 @@ class Play extends Phaser.Scene {
         ship.alpha = 0
         // create explosion sprite at ships pos
         this.emitter.explode(400, ship.x + 30, ship.y + 16)   //make particles happen
-        let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
-        boom.anims.play('explode')                  // play animation
-        boom.on("animationcomplete", () => {        // callback after anim ends
-            ship.reset()                            // reset ship
-            ship.alpha = 1                          // make visible
-            boom.destroy()                          // remove explosion sprite
-        })
+        if(ship.type == 'alien') {
+            let boom = this.add.sprite(ship.x, ship.y, 'explosion').setOrigin(0, 0);
+            boom.anims.play('explode') 
+            boom.on("animationcomplete", () => {        // callback after anim ends
+                ship.reset()                            // reset ship
+                ship.alpha = 1                          // make visible
+                boom.destroy()                         // remove explosion sprite
+            })
+        } else {
+            let boom = this.add.sprite(ship.x, ship.y, 'pop').setOrigin(0, 0);
+            boom.anims.play('bird-pop') 
+            boom.on("animationcomplete", () => {        // callback after anim ends
+                ship.reset()                            // reset ship
+                ship.alpha = 1                          // make visible
+                boom.destroy()                         // remove explosion sprite
+            })
+        }                 // play animation
         // score add and text update
         this.p1Score += ship.points
         this.scoreLeft.text = this.p1Score

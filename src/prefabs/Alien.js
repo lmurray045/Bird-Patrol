@@ -4,6 +4,7 @@ class Alien extends Spaceship {
         scene.add.existing(this)
         this.moveSpeed = 5
         this.counter = 0
+        this.type = 'alien'
     }
 
     update() {
